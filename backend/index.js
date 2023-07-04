@@ -35,10 +35,8 @@ const formDataSchema = new mongoose.Schema({
 
 const FormData = mongoose.model("FormData", formDataSchema);
 
-
-
 app.post("/add", async (req, res) => {
-  
+
   const formData = req.body;
   const newFormData = new FormData(formData);
 
@@ -59,4 +57,4 @@ app.get("/", (req, res) => {
   res.send("the app is working");
 });
 
-app.listen(5000, () => {});
+app.listen(5000,);
