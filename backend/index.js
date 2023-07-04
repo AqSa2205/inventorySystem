@@ -67,5 +67,5 @@ app.get("/", (req, res) => {
   res.send("the app is working");
 });
 app.listen(5000, () => {
-  console.log("Server started on port 5000");
+  
 });
