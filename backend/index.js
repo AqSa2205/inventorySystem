@@ -53,8 +53,19 @@ app.post("/add", async (req, res) => {
   }
 });
 
+app.get("/", async (req, res) => {
+  try {
+    const allFormData = await FormData.find();
+    res.json(allFormData);
+  } catch (err) {
+    console.error("Error:", err);
+    res.status(500).json({ error: "An error occurred" });
+  }
+});
+
 app.get("/", (req, res) => {
   res.send("the app is working");
 });
-
-app.listen(5000,);
+app.listen(5000, () => {
+  console.log("Server started on port 5000");
+});
