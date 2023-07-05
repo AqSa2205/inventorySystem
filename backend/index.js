@@ -53,7 +53,7 @@ app.post("/add", async (req, res) => {
   }
 });
 
-app.get("/", async (req, res) => {
+app.get("/findAll", async (req, res) => {
   try {
     const allFormData = await FormData.find();
     res.json(allFormData);
@@ -64,15 +64,15 @@ app.get("/", async (req, res) => {
     console.log(data.formdatas)
   }
 });
-app.get('/findAll', async (req, res) => {
-  try {
-    const data = await model.find();
-    res.json({ formDatas: data });
-  } catch (error) {
-    console.error('Error:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
+// app.get('/findAll', async (req, res) => {
+//   try {
+//     const data = await FormData.find();
+//     res.json({ data: formData });
+//   } catch (error) {
+//     console.error('Error:', error);
+//     res.status(500).json({ error: 'Internal Server Error' });
+//   }
+// });
 
 
 app.get("/", (req, res) => {
