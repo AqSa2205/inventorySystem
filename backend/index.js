@@ -60,12 +60,24 @@ app.get("/", async (req, res) => {
   } catch (err) {
     console.error("Error:", err);
     res.status(500).json({ error: "An error occurred" });
+
+    console.log(data.formdatas)
   }
 });
+app.get('/findAll', async (req, res) => {
+  try {
+    const data = await model.find();
+    res.json({ formDatas: data });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 
 app.get("/", (req, res) => {
   res.send("the app is working");
 });
 app.listen(5000, () => {
-  
+  console.log('Server is running on port 5000');
 });
